@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--Control colors.-->
+    <Color x:Key="WindowColor">#272B39</Color>
+    <Color x:Key="WindowBorder">#249445</Color>
+
+    <Color x:Key="ContentAreaColor">#272B39</Color>
+
+    <Color x:Key="ForegroundColor">#FFFFFF</Color>
+    <Color x:Key="ForegroundMousOverColor">#272B39</Color>
+    <Color x:Key="ForegroundPressedColor">#272B39</Color>
+    <Color x:Key="DisabledForegroundColor">#fff</Color>
+    <Color x:Key="DisabledControlColor">#FF888888</Color>
+
+    <Color x:Key="SelectedBackgroundColor">#6d6f78</Color>
+    <Color x:Key="SelectedUnfocusedColor">#6d6f78</Color>
+
+
+    <Color x:Key="ControlColor">#272B39</Color>
+
+    <Color x:Key="ControlMouseOverColor">#6d6f78</Color>
+    <Color x:Key="ControlPressedColor">#6d6f78</Color>
+
+
+    <Color x:Key="GlyphColor">#fff</Color>
+    <Color x:Key="GlyphMouseOver">
+        sc#1, 0.004391443, 0.002428215, 0.242281124
+    </Color>
+
+    <SolidColorBrush x:Key="FocusVisualColorBrush">#fff</SolidColorBrush>
+    <!--Border colors-->
+    <Color x:Key="BorderColor">#6d6f78</Color>
+
+    <Color x:Key="PressedBorderColor">#6d6f78</Color>
+
+
+    <Color x:Key="DisabledBorderColor">#6d6f78</Color>
+
+<Color x:Key="ListviewItemSelected">#249445</Color>
+    <Color x:Key="ListviewItemMouseOver">#79c92e</Color>
+    <Color x:Key="DefaultBorderBrushColor">#6d6f78</Color>
+    <SolidColorBrush x:Key="ForegroundBrush">#fff</SolidColorBrush>
+<!--Start Scrollbar Colors-->
+    <Color x:Key="ScrollBarNormalColor">#272B39</Color>
+    <Color x:Key="ScrollBarGlyphColor">#FFFFFF</Color>
+    <Color x:Key="ScrollBarPressedColor">#FFFFFF</Color>
+    <Color x:Key="ScrollBarDisabledColor">#6d6f78</Color>
+    <Color x:Key="ScrollBarSkinColor">#6d6f78</Color>
+    <Color x:Key="ScrollBarMouseOverSkinColor">#ffffff</Color>
+    <!--End Scrollbar Colors-->
+    <!--Control-specific resources.-->
+    <Color x:Key="HeaderTopColor">#FFC5CBF9</Color>
+    <Color x:Key="DatagridCurrentCellBorderColor">Black</Color>
+    <Color x:Key="SliderTrackColor">#FFC5CBF9</Color>
+    <Color x:Key="ButtonMouseOver">#fff</Color> <!--also used for checkbox mouseover border-->
+    <Color x:Key="ButtonPressed">#6d6f78</Color>
+    <Color x:Key="NavButtonFrameColor">#FF3843C4</Color>
+</ResourceDictionary>

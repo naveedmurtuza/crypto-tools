@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="CryptoTools.UI.Controls.BlockCipherControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Controls="clr-namespace:CryptoTools.UI.Controls"
+             xmlns:ViewModels="clr-namespace:CryptoTools.ViewModels" mc:Ignorable="d" d:DesignHeight="80" d:DesignWidth="440">
+    <!--<UserControl.DataContext>
+        <viewmodel:BlockCipherViewModel x:Name="BlockCipherViewModel" />
+    </UserControl.DataContext>-->
+    <Grid Name="grid1">
+        <Grid.Resources>
+            <Thickness x:Key="MarginResource" Left="5" Top="0" Right="0" Bottom="4" />
+        </Grid.Resources>
+        <StackPanel Margin="3">
+            <ListBox SelectedIndex="0" Padding="3" Margin="3">
+                <ListBox.Resources>
+                    <Style TargetType="{x:Type Expander}" BasedOn="{StaticResource ExpanderStyle}">
+                        <Setter Property="IsExpanded"
+                                Value="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}" />
+                    </Style>
+                </ListBox.Resources>
+                <ListBox.Template>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <ItemsPresenter />
+                    </ControlTemplate>
+                </ListBox.Template>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <ContentPresenter Content="{TemplateBinding Content}" Margin="0,0,0,5" />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <Expander Header="Step 1: Password Based Key Derivation Function (PBKDF)" Name="expander1">
+                    <Controls:PbkdfControl x:Name="PbkdfControl" DataContext="{Binding PbkdfViewModel}" />
+                </Expander>
+                <Expander Header="Step 2: Encrypt/Decrypt" Name="expander2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="153*" />
+                            <ColumnDefinition Width="218*" />
+                            <ColumnDefinition Width="93*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <CheckBox Content="Use BouncyCastle Implementation"
+                                  IsChecked="{Binding BlockCipherModel.BouncyImplementation}" Grid.Row="0" Height="16" HorizontalAlignment="Left"
+                                  Name="checkBox1" VerticalAlignment="Center" Margin="{StaticResource MarginResource}" Grid.ColumnSpan="2" />
+                        <Label Content="Padding:" Height="23" Grid.Row="1" HorizontalAlignment="Right" Name="label1"
+                               VerticalAlignment="Center" />
+                        <ComboBox Grid.ColumnSpan="1" Height="23" ItemsSource="{Binding Path=PaddingSource}"
+                                  Name="cboxPadding" SelectedValue="{Binding Path=BlockCipherModel.Padding}" VerticalAlignment="Center" Grid.Row="1"
+                                  Grid.Column="1" Margin="{StaticResource MarginResource}" />
+
+                        <Label Content="Cipher Mode:" Height="23" Grid.Row="2" HorizontalAlignment="Right" Name="label2"
+                               VerticalAlignment="Center" />
+                        <ComboBox Grid.ColumnSpan="1" Grid.Row="2" Height="23"  Margin="{StaticResource MarginResource}" 
+                                  ItemsSource="{Binding Path=CipherModeSource}" Name="cboxModes" SelectedValue="{Binding Path=BlockCipherModel.Mode}"
+                                  VerticalAlignment="Center" Grid.Column="1" />
+                        <Label Content="Cipher Engine:" Grid.Row="3" Height="23" HorizontalAlignment="Right" Name="label3"
+                               VerticalAlignment="Center" />
+                        <ComboBox Grid.ColumnSpan="1" Grid.Row="3" Height="23" ItemsSource="{Binding Path=CipherSource}"  Margin="{StaticResource MarginResource}" 
+                                  Name="cboxEngine" SelectedValue="{Binding Path=BlockCipherModel.Engine}" VerticalAlignment="Center" Grid.Column="1" />
+                        
+                       
+                        <TextBox Grid.ColumnSpan="2" Grid.Row="4" Height="23" HorizontalAlignment="Right" Name="txtPath"
+                                 Text="{Binding Path=BlockCipherModel.Path}" VerticalAlignment="Center" Width="306" Margin="{StaticResource MarginResource}" />
+                        <Button Command="{Binding Path=OpenFileCommand}" Content="Browse" Grid.Column="2" Grid.Row="4"
+                                Height="23" HorizontalAlignment="Left" Name="btnBrowse" VerticalAlignment="Center" Width="75" Margin="10,0,0,5" />
+                        
+                        <Button Command="{Binding Path=EncryptCommand}" Content="Encrypt" Grid.Column="2" Grid.Row="5"
+                                Height="23" HorizontalAlignment="Left" Name="btnEncrypt" VerticalAlignment="Center" Width="75" Grid.ColumnSpan="1"
+                                Margin="10,0,0,0" />
+                        <Button Command="{Binding Path=DecryptCommand}" Content="Decrypt" Grid.Row="5" Height="23"
+                                HorizontalAlignment="Right" Name="btnDecrypt" VerticalAlignment="Center" Width="75" Grid.Column="1" />
+                    </Grid>
+                </Expander>
+            </ListBox>
+        </StackPanel>
+        <Controls:PopupPanel Controls:PopupParent="{Binding ElementName=grid1}"
+                             Controls:PopupPanel.IsPopupVisible="{Binding IsMessageBoxVisible}" Content="{Binding MessageBoxContent}">
+            <Controls:PopupPanel.Resources>
+                <DataTemplate DataType="{x:Type ViewModels:MessageBoxViewModel}">
+                    <Border BorderBrush="{StaticResource BorderBrush}" BorderThickness="2"
+                            Background="{StaticResource BackgroundBrush}">
+                        <Controls:MessageBoxControl />
+                    </Border>
+                </DataTemplate>
+            </Controls:PopupPanel.Resources>
+        </Controls:PopupPanel>
+    </Grid>
+
+
+</UserControl>

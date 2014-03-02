@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="CryptoTools.UI.Controls.ExamineSslControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewmodels="clr-namespace:CryptoTools.ViewModels" mc:Ignorable="d" 
+             d:DesignHeight="236" d:DesignWidth="640">
+    <Grid>
+        <!--<Grid.DataContext>
+            <viewmodels:ExamineSslViewModel x:Name="ViewModel" />
+        </Grid.DataContext>-->
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="72*" />
+            <ColumnDefinition Width="439*" />
+            <ColumnDefinition Width="129*" />
+        </Grid.ColumnDefinitions>
+        <TextBox Height="23" HorizontalAlignment="Stretch" Name="txtUrl" VerticalAlignment="Center" Margin="0,5" Text="{Binding Url}" Grid.Column="1" />
+        <Button Content="Go!" Grid.Column="2" Height="23" Name="button1" VerticalAlignment="Center" Margin="16,0,10,0" Command="{Binding ExamineSslConnectionCommand}"/>
+        <TextBox Grid.Row="1" Name="txtTerminal" Grid.RowSpan="5" Grid.ColumnSpan="3" Margin="12,13,12,12" IsReadOnly="True" FontFamily="Consolas" Text="{Binding Response}" MinHeight="150" />
+        <Label Grid.ColumnSpan="1" Height="23" HorizontalAlignment="Right" Name="textBlock1" Content="https://" VerticalAlignment="Center" Margin="0,0,5,0" />
+    </Grid>
+</UserControl>

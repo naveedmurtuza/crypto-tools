@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="CryptoTools.UI.Controls.RevokeCertControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:CryptoTools.Converters" xmlns:models="clr-namespace:CryptoTools.Helpers"
+             mc:Ignorable="d" 
+             d:DesignHeight="96" d:DesignWidth="300">
+<Grid>
+        <Grid.Resources>
+            <converters:CrlReasonStringToEnum x:Key="CrlReasonConverter" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="119*" />
+            <ColumnDefinition Width="99*" />
+            <ColumnDefinition Width="82*" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Serial" Height="28" HorizontalAlignment="Right" Name="label1" VerticalAlignment="Center" Margin="0,8,5,0" />
+        <Label Content="Reason" Grid.RowSpan="1" Height="28" HorizontalAlignment="Right" Name="label2" VerticalAlignment="Center" Grid.Row="1" Margin="0,8,5,0" />
+        <Button Content="Revoke" Command="{Binding Command}" Grid.Column="2" Grid.Row="2" Height="23" HorizontalAlignment="Right" Name="btnRevoke" VerticalAlignment="Center" Width="75" Margin="0,1" />
+        <ComboBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="cboxReason" VerticalAlignment="Center" Width="172" Grid.Row="1" Margin="0,6" ItemsSource="{Binding Path=CrlReasons}" SelectedValue="{Binding Path=RevokedSerial.Reason, Converter={StaticResource CrlReasonConverter}}" Grid.ColumnSpan="2" />
+        <TextBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="txtSerial" VerticalAlignment="Center" Width="172" IsReadOnly="True" Margin="0,6" Text="{Binding RevokedSerial.Serial}" Grid.ColumnSpan="2" />
+        <Label Grid.Row="2" Height="28" HorizontalAlignment="Left" Name="label3" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,5,0,0" Visibility="Collapsed">
+            <Hyperlink  Command="{Binding HyperLinkCommand}">
+                View Certificate
+            </Hyperlink>
+        </Label>
+        <Button Content="Cancel" Command="{Binding CancelCommand}" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="2" Height="23" HorizontalAlignment="Right" Name="button1" VerticalAlignment="Center" Width="75" />
+    </Grid>
+</UserControl>

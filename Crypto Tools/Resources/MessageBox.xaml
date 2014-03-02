@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--<ControlTemplate x:Key="MessageBox">
+        <StackPanel>
+            <DockPanel LastChildFill="True">
+                <Image Source="{Binding Image}"  DockPanel.Dock="Left"/>
+                <TextBlock Text="{DynamicResource Text}" />
+            </DockPanel>
+            <CheckBox Content="Dont show this again"
+        </StackPanel>
+    </ControlTemplate>-->
+</ResourceDictionary>

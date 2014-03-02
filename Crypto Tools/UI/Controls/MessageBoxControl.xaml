@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="CryptoTools.UI.Controls.MessageBoxControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Converters="clr-namespace:CryptoTools.Converters" mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Padding="10">
+    <UserControl.Resources>
+
+        <Converters:MessageBoxButtonConverter x:Key="mbbc" />
+    </UserControl.Resources>
+
+    <DockPanel Name="dockPanel1" >
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button Name="Button3" Padding="5" MinWidth="75" Command="{Binding Button3Command}" Visibility="{Binding Model.MessageBoxButton, Converter={StaticResource mbbc}, ConverterParameter=Button3}"  Content="{Binding Model.MessageBoxButton, Converter={StaticResource mbbc}, ConverterParameter=Button3}"/>
+            <Button Name="Button2" Padding="5" MinWidth="75" Command="{Binding Button2Command}" Visibility="{Binding Model.MessageBoxButton, Converter={StaticResource mbbc}, ConverterParameter=Button2}"  Content="{Binding Model.MessageBoxButton, Converter={StaticResource mbbc}, ConverterParameter=Button2}"/>
+            <Button Name="Button1" Padding="5" MinWidth="75" Command="{Binding Button1Command}" Visibility="{Binding Model.MessageBoxButton, Converter={StaticResource mbbc}, ConverterParameter=Button1}" Content="{Binding Model.MessageBoxButton, Converter={StaticResource mbbc}, ConverterParameter=Button1}" />
+        </StackPanel>
+
+        <StackPanel Name="stackPanel1">
+            <StackPanel.Resources>
+                <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+                <Converters:MessageBoxImageSourceConverter x:Key="MessageBoxImageSourceConverter" />
+                <Converters:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter" />
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Foreground">
+                        <Setter.Value>
+                            <SolidColorBrush Color="White" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </StackPanel.Resources>
+            <!--<StackPanel.DataContext>
+            <WpfTheme:MessageBoxControlModel x:Name="Model" />
+        </StackPanel.DataContext>-->
+            <DockPanel LastChildFill="True" Margin="10">
+                <Image Source="{Binding Model.MessageBoxImage, Converter={StaticResource MessageBoxImageSourceConverter}}" Height="32" Width="32" DockPanel.Dock="Left"/>
+                <TextBlock Text="{Binding Model.Text}" TextAlignment="Left" Margin="15 0 0 0" VerticalAlignment="Center" />
+            </DockPanel>
+            <CheckBox Content="{Binding Model.DontAskAgainText}" Visibility="{Binding Model.DontAskAgainVisible,Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <Expander Header="{Binding Model.ExpanderHeader}" Name="expander1" Visibility="{Binding Model.ExpanderDetails, Converter={StaticResource NotNullToVisibilityConverter}}">
+                <TextBlock  Text="{Binding Model.ExpanderDetails}" Margin="5 0 0 0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Left" />
+            </Expander>
+        </StackPanel>
+
+    </DockPanel>
+</UserControl>

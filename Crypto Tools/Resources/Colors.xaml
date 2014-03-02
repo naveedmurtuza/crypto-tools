@@ -1,0 +1,96 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Color x:Key="Background">#272B39</Color>
+    <Color x:Key="Border">#6d6f78</Color>
+    <Color x:Key="Foreground">#FFFFFF</Color>
+    <Color x:Key="Disabled">#6d6f78</Color>
+<Color x:Key="ActiveBackground">#FFFFFF</Color>
+    <Color  x:Key="ButtonBorder">#FFFFFF</Color>
+    <Color x:Key="ButtonForegroundWhenPressed">#272B39</Color>
+       <!-- When Pressed -->
+
+    <Color  x:Key="ButtonBorderWhenMouseOver">#FFFFFF</Color>
+    <Color  x:Key="CaretColor">#6d6f78</Color>
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource Background}" />
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource Border}" />
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource Foreground}" />
+    <SolidColorBrush x:Key="DisabledBrush" Color="{StaticResource Disabled}" />
+
+
+    <SolidColorBrush x:Key="ButtonBorderBrush" Color="{StaticResource ButtonBorder}" />
+    <SolidColorBrush x:Key="ButtonTextWhenPressedBrush" Color="{StaticResource ButtonForegroundWhenPressed}" />
+    <SolidColorBrush x:Key="ActiveBackgroundBrush" Color="{StaticResource ActiveBackground}" />
+    <SolidColorBrush x:Key="ButtonForegroundWhenPressedBrush" Color="{StaticResource ButtonForegroundWhenPressed}" />
+    <SolidColorBrush x:Key="ButtonBorderWhenMouseOverBrush" Color="{StaticResource ButtonBorderWhenMouseOver}" />
+
+    <SolidColorBrush x:Key="CaretColorBrush" Color="{StaticResource CaretColor}" />
+    <SolidColorBrush x:Key="ReadOnlyBackgroundBrush" Color="{StaticResource CaretColor}" />
+    <SolidColorBrush x:Key="GlyphBrush" Color="White" />
+    <SolidColorBrush x:Key="WindowBorderBrush" Color="{StaticResource WindowBorder}" />
+
+
+    <Color x:Key="MenuBackground">#249445</Color>
+    <Color x:Key="MenuBackgroundActive">#79c92e</Color>
+    <Color x:Key="SubMenuBackground">#114F54</Color>
+    <Color x:Key="SubMenuBackgroundActive">#79c92e</Color>
+    <!-- Start Window Colors --> 
+
+    <Color x:Key="WindowBorder">#249445</Color>
+    <!--<Color x:Key="ListviewItemMouseOver">#79c92e</Color>
+    <Color x:Key="ListviewHeaderBorder">#6d6f78</Color>-->
+    <!-- End Window Colors -->
+    
+    <!-- Start ListView Colors -->
+    <Color x:Key="ListviewForeground">#FFFFFF</Color>
+    <Color x:Key="ListviewBackground">#272B39</Color>
+    <Color x:Key="ListviewItemSelected">#249445</Color>
+    <Color x:Key="ListviewItemMouseOver">#79c92e</Color>
+    <Color x:Key="ListviewHeaderBorder">#6d6f78</Color>
+    <!-- End ListViewColors -->
+    
+    <!--Start Scrollbar Colors-->
+    <Color x:Key="ScrollBarNormalColor">#272B39</Color>
+    <Color x:Key="ScrollBarGlyphColor">#FFFFFF</Color>
+    <Color x:Key="ScrollBarPressedColor">#FFFFFF</Color>
+    <Color x:Key="ScrollBarDisabledColor">#6d6f78</Color>
+    <Color x:Key="ScrollBarSkinColor">#6d6f78</Color>
+    <Color x:Key="ScrollBarMouseOverSkinColor">#ffffff</Color>
+    <!--End Scrollbar Colors-->
+    
+   <!--Start TabItem Colors-->
+    <Color x:Key="TabControlBackground">#272B39</Color>
+    <Color x:Key="TabItemSelectedColor">#249445</Color>
+    <Color x:Key="TabItemMouseOverColor">#79c92e</Color>
+    <!--End TabItem Colors-->
+    
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="MenuBackgroundBrush" Color="{StaticResource MenuBackground}" />
+    <SolidColorBrush x:Key="MenuBackgroundActiveBrush" Color="{StaticResource MenuBackgroundActive}" />
+    <SolidColorBrush x:Key="SubMenuBackgroundBrush" Color="{StaticResource SubMenuBackground}" />
+    <SolidColorBrush x:Key="SubMenuBackgroundActiveBrush" Color="{StaticResource SubMenuBackgroundActive}" />
+    
+    <SolidColorBrush x:Key="TabControlBackgroundBrush" Color="{StaticResource TabControlBackground}" />
+    <SolidColorBrush x:Key="TabItemMouseOverColorBrush" Color="{StaticResource TabItemMouseOverColor}" />
+    <SolidColorBrush x:Key="TabItemSelectedColorBrush" Color="{StaticResource TabItemSelectedColor}" />
+    <!--<SolidColorBrush x:Key="ButtonBrush" Color="{StaticResource Button}" />
+    <SolidColorBrush x:Key="ButtonIsDisabledBrush" Color="{StaticResource ButtonIsDisabled}" />
+    <SolidColorBrush x:Key="ButtonIsPressedBrush" Color="{StaticResource ButtonIsPressed}" />
+    <SolidColorBrush x:Key="ButtonTextBrush" Color="{StaticResource ButtonText}" />
+    <SolidColorBrush x:Key="ButtonTextWhenPressedBrush" Color="{StaticResource ButtonTextWhenPressed}" />-->
+    <!--<SolidColorBrush x:Key="ButtonTextWhenDisabledBrush" Color="{StaticResource ButtonTextWhenDisabled}" />-->
+    <!--<SolidColorBrush  x:Key="ButtonBorderWhenMouseOverBrush" Color="{StaticResource ButtonBorderWhenMouseOver}" />-->
+    <SolidColorBrush  x:Key="ListviewBackgroundBrush" Color="{StaticResource ListviewBackground}" />
+    <SolidColorBrush  x:Key="ListviewItemSelectedBrush" Color="{StaticResource ListviewItemSelected}" />
+    <SolidColorBrush  x:Key="ListviewItemMouseOverBrush" Color="{StaticResource ListviewItemMouseOver}" />
+    <SolidColorBrush  x:Key="ListviewForegroundBrush" Color="{StaticResource ListviewForeground}" />
+    <SolidColorBrush  x:Key="ListviewHeaderBorderBrush" Color="{StaticResource ListviewHeaderBorder}" />
+    <SolidColorBrush  x:Key="ScrollBarNormalColorBrush" Color="{StaticResource ScrollBarNormalColor}" />
+    <SolidColorBrush  x:Key="ScrollBarPressedColorBrush" Color="{StaticResource ScrollBarPressedColor}" />
+    <SolidColorBrush  x:Key="ScrollBarDisabledColorBrush" Color="{StaticResource ScrollBarDisabledColor}" />
+    <SolidColorBrush  x:Key="ScrollBarGlyphColorBrush" Color="{StaticResource ScrollBarGlyphColor}" />
+    <SolidColorBrush x:Key="ScrollBarSkinColorBrush" Color="{StaticResource ScrollBarSkinColor}" />
+    <SolidColorBrush x:Key="ScrollBarMouseOverSkinColorBrush" Color="{StaticResource ScrollBarMouseOverSkinColor}" />
+    <SolidColorBrush x:Key="HorizontalNormalBrush" Color="#272B39" />
+    <SolidColorBrush x:Key="HorizontalNormalBorderBrush" Color="#272B39" />
+</ResourceDictionary>

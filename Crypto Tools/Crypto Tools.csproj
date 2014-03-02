@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E9E7BD65-929E-4137-8A82-2E9C378BB6F5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CryptoTools</RootNamespace>
+    <AssemblyName>Crypto Tools</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="crypto, Version=1.7.4914.3173, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Ookii.Dialogs.Wpf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0c15020868fd6249, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Ookii.Dialogs.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="UI\Controls\CheckedComboBox.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Converters\Base64Converter.cs" />
+    <Compile Include="Converters\CrlReasonStringToEnum.cs" />
+    <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Converters\LighterColourConverter.cs" />
+    <Compile Include="Converters\ListToStringConverter.cs" />
+    <Compile Include="Converters\MessageBoxButtonConverter.cs" />
+    <Compile Include="Converters\NullVisibilityConverter.cs" />
+    <Compile Include="Converters\X509CertificateConverter.cs" />
+    <Compile Include="Converters\X509StoreNameConverter.cs" />
+    <Compile Include="Helpers\AttachedProperties.cs" />
+    <Compile Include="Helpers\Country.cs" />
+    <Compile Include="Helpers\Freezable.cs" />
+    <Compile Include="Helpers\RevokedSerial.cs" />
+    <Compile Include="MainWindowEx.xaml.cs">
+      <DependentUpon>MainWindowEx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlockCipherModel.cs" />
+    <Compile Include="Models\DigestModel.cs" />
+    <Compile Include="Models\ExportKeyModel.cs" />
+    <Compile Include="Models\GenerateCertificateModel.cs" />
+    <Compile Include="Models\GeneratePasswordModel.cs" />
+    <Compile Include="Models\KeyStoreModel.cs" />
+    <Compile Include="Models\MainMenuModel.cs" />
+    <Compile Include="Models\MessageBoxModel.cs" />
+    <Compile Include="UI\Controls\MessageBoxControl.xaml.cs">
+      <DependentUpon>MessageBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MessageBox\MessageBoxControlModel.cs" />
+    <Compile Include="Models\OpenKeyStoreModel.cs" />
+    <Compile Include="Models\PbkdfModel.cs" />
+    <Compile Include="Models\X509NameModel.cs" />
+    <Compile Include="Passwords\PasswordGenerator.cs" />
+    <Compile Include="Passwords\PronounceablePasswordGenerator.cs" />
+    <Compile Include="Passwords\SimplePasswordGenerator.cs" />
+    <Compile Include="UI\Controls\BlockCipherControl.xaml.cs">
+      <DependentUpon>BlockCipherControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\DigestControl.xaml.cs">
+      <DependentUpon>DigestControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ExamineSslControl.xaml.cs">
+      <DependentUpon>ExamineSslControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\ExportKeyControl.xaml.cs">
+      <DependentUpon>ExportKeyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\SelectCertCrlControl.xaml.cs">
+      <DependentUpon>SelectCertCrlControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\MainMenuControl.xaml.cs">
+      <DependentUpon>MainMenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\PopupPanel.xaml.cs">
+      <DependentUpon>PopupPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\RevokeCertControl.xaml.cs">
+      <DependentUpon>RevokeCertControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FxWindow.cs" />
+    <Compile Include="UI\MessageBox\FxMessageBox.cs" />
+    <Compile Include="UI\Controls\KeyStoreListControl.xaml.cs">
+      <DependentUpon>KeyStoreListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MessageBox\FxMessageWindow.xaml.cs">
+      <DependentUpon>FxMessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MessageBox\MessageBoxControl.xaml.cs">
+      <DependentUpon>MessageBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\OpenKeyStoreControl.xaml.cs">
+      <DependentUpon>OpenKeyStoreControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\PasswordGeneratorControl.xaml.cs">
+      <DependentUpon>PasswordGeneratorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\PbkdfControl.xaml.cs">
+      <DependentUpon>PbkdfControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\X509NameControl.xaml.cs">
+      <DependentUpon>X509NameControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\FlagsHelper.cs" />
+    <Compile Include="Utilities\IMessageBoxSupport.cs" />
+    <Compile Include="Utilities\CryptUI.cs" />
+    <Compile Include="Utilities\Observable.cs" />
+    <Compile Include="Utilities\PemUtilities.cs" />
+    <Compile Include="Utilities\Repository.cs" />
+    <Compile Include="Utilities\SerializeUtils.cs" />
+    <Compile Include="ViewModels\BlockCipherViewModel.cs" />
+    <Compile Include="ViewModels\DigestViewModel.cs" />
+    <Compile Include="ViewModels\ExamineSslViewModel.cs" />
+    <Compile Include="ViewModels\ExportKeyViewModel.cs" />
+    <Compile Include="ViewModels\GeneratePasswordViewModel.cs" />
+    <Compile Include="ViewModels\IPageViewModel.cs" />
+    <Compile Include="ViewModels\KeyStoreViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Models\X509CertModel.cs" />
+    <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="Helpers\KeyUsageWrapper.cs" />
+    <Compile Include="Helpers\SignatureAlgorithms.cs" />
+    <Compile Include="Helpers\TypeWrapper.cs" />
+    <Compile Include="Utilities\ExtensionMethods.cs" />
+    <Compile Include="Utilities\KeyPairUtils.cs" />
+    <Compile Include="Utilities\KeyUsageUtils.cs" />
+    <Compile Include="Utilities\Reflection.cs" />
+    <Compile Include="Utilities\SecureRandomUtils.cs" />
+    <Compile Include="Utilities\Utilities.cs" />
+    <Compile Include="Utilities\X509Utils.cs" />
+    <Compile Include="ViewModels\MessageBoxViewModel.cs" />
+    <Compile Include="ViewModels\OpenKeyStoreViewModel.cs" />
+    <Compile Include="ViewModels\PbkdfViewModel.cs" />
+    <Compile Include="ViewModels\RevokeCertViewModel.cs" />
+    <Compile Include="ViewModels\SelectCertCrlViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\X509CertViewModel.cs" />
+    <Compile Include="ViewModels\X509NameViewModel.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\EnumFactory.cs" />
+    <Compile Include="Helpers\ListItemEntry.cs" />
+    <Page Include="MainWindowEx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Label.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Shared.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\toolbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\tooltip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Win8ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Win8MenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\WindowChrome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Checkbox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Expander.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MetroTileSmall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\RadioButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Scrollbar_SachaBarber.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\TextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Win8StartTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\BlockCipherControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\DigestControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\ExamineSslControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\ExportKeyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\SelectCertCrlControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\MainMenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\KeyStoreListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\MessageBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\PopupPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\RevokeCertControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MessageBox\FxMessageWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\MessageBox\MessageBoxControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Controls\OpenKeyStoreControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\PasswordGeneratorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\PbkdfControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\X509NameControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\key_entry.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\keypair_entry.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trustcert_entry.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\help.png" />
+    <Resource Include="Images\Info.png" />
+    <Resource Include="Images\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\category.png" />
+    <Resource Include="Images\error.png" />
+    <Resource Include="Images\lightbulb1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chart.png" />
+    <Resource Include="Images\home.png" />
+    <Resource Include="Images\home2.png" />
+    <Resource Include="Images\home3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\themes\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\themes\restore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\themes\maximize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\themes\min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tiles\gear.png" />
+    <Resource Include="Images\tiles\help2.png" />
+    <Resource Include="Images\tiles\key.png" />
+    <Resource Include="Images\tiles\zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tiles\folder.png" />
+    <Resource Include="Images\tiles\sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tiles\certificate.png" />
+    <Resource Include="Images\tiles\ssl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tiles\encrypt.png" />
+    <Resource Include="Images\tiles\hash.png" />
+    <Resource Include="Images\tiles\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tiles\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrow_back_32.png" />
+    <Resource Include="Images\arrow_back_hover_32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
